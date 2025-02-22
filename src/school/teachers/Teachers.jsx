@@ -3,9 +3,9 @@ import React from 'react'
 
 const Teachers = () => {
   return (
-    <div>
-      
-    </div>
+    <h1>
+      Teachers
+    </h1>
   )
 }
 

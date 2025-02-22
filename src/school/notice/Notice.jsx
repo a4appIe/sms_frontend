@@ -3,9 +3,9 @@ import React from 'react'
 
 const Notice = () => {
   return (
-    <div>
-      
-    </div>
+    <h1>
+      Notice
+    </h1>
   )
 }
 

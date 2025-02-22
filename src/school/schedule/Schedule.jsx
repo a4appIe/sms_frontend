@@ -3,9 +3,9 @@ import React from 'react'
 
 const Schedule = () => {
   return (
-    <div>
-      
-    </div>
+    <h1>
+      Schedule
+    </h1>
   )
 }
 

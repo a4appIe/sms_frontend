@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as React from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -16,9 +17,24 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import QuizIcon from "@mui/icons-material/Quiz";
+
+const navigation = [
+  { icon: DashboardIcon, link: "/student", component: "Dashboard" },
+  {
+    icon: RecordVoiceOverIcon,
+    link: "/student/attendance",
+    component: "Attendance",
+  },
+  { icon: CalendarMonthIcon, link: "/student/schedule", component: "Schedule" },
+  { icon: NotificationsIcon, link: "/student/notice", component: "Notice" },
+  { icon: QuizIcon, link: "/student/examinations", component: "Examinations" },
+];
 
 const drawerWidth = 240;
 
@@ -100,7 +116,8 @@ const Drawer = styled(MuiDrawer, {
   ],
 }));
 
-export default function MiniDrawer() {
+export default function Student() {
+  const navigate = useNavigate();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -111,6 +128,9 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  function handleNavigation(link) {
+    navigate(link);
+  }
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -132,7 +152,7 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            SMS
           </Typography>
         </Toolbar>
       </AppBar>
@@ -148,8 +168,8 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+          {navigation.map((navItem, index) => (
+            <ListItem key={index} disablePadding sx={{ display: "block" }}>
               <ListItemButton
                 sx={[
                   {
@@ -164,6 +184,9 @@ export default function MiniDrawer() {
                         justifyContent: "center",
                       },
                 ]}
+                onClick={() => {
+                  handleNavigation(navItem.link);
+                }}
               >
                 <ListItemIcon
                   sx={[
@@ -180,10 +203,10 @@ export default function MiniDrawer() {
                         },
                   ]}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {<navItem.icon />}
                 </ListItemIcon>
                 <ListItemText
-                  primary={text}
+                  primary={navItem.component}
                   sx={[
                     open
                       ? {
@@ -199,7 +222,7 @@ export default function MiniDrawer() {
           ))}
         </List>
         <Divider />
-        <List>
+        {/* <List>
           {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton
@@ -249,7 +272,7 @@ export default function MiniDrawer() {
               </ListItemButton>
             </ListItem>
           ))}
-        </List>
+        </List> */}
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />

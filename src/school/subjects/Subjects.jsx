@@ -3,9 +3,9 @@ import React from 'react'
 
 const Subjects = () => {
   return (
-    <div>
-      
-    </div>
+    <h1>
+      Subjects
+    </h1>
   )
 }
 

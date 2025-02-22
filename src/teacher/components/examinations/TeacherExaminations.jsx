@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 
-const Students = () => {
+const TeacherExaminations = () => {
   return (
     <h1>
-      Students
+      Teacher Examinations
     </h1>
   )
 }
 
-export default Students
+export default TeacherExaminations

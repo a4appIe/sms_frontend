@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 
-const Students = () => {
+const TeacherSchedule = () => {
   return (
     <h1>
-      Students
+      Teacher Schedule
     </h1>
   )
 }
 
-export default Students
+export default TeacherSchedule

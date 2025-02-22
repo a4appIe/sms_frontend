@@ -31,19 +31,15 @@ import QuizIcon from "@mui/icons-material/Quiz";
 import Diversity3Icon from "@mui/icons-material/Diversity3";
 
 const navigation = [
-  { icon: DashboardIcon, link: "/school", component: "Dashboard" },
+  { icon: DashboardIcon, link: "/teacher", component: "Dashboard" },
   {
     icon: RecordVoiceOverIcon,
-    link: "/school/attendance",
+    link: "/teacher/attendance",
     component: "Attendance",
   },
-  { icon: Person4Icon, link: "/school/students", component: "Students" },
-  { icon: AccountBoxIcon, link: "/school/teachers", component: "Teachers" },
-  { icon: CalendarMonthIcon, link: "/school/schedule", component: "Schedule" },
-  { icon: Diversity3Icon, link: "/school/class", component: "Class" },
-  { icon: NotificationsIcon, link: "/school/notice", component: "Notice" },
-  { icon: MenuBookIcon, link: "/school/subjects", component: "Subjects" },
-  { icon: QuizIcon, link: "/school/examinations", component: "Examinations" },
+  { icon: CalendarMonthIcon, link: "/teacher/schedule", component: "Schedule" },
+  { icon: NotificationsIcon, link: "/teacher/notice", component: "Notice" },
+  { icon: QuizIcon, link: "/teacher/examinations", component: "Examinations" },
 ];
 
 const drawerWidth = 240;
@@ -126,7 +122,7 @@ const Drawer = styled(MuiDrawer, {
   ],
 }));
 
-export default function School() {
+export default function Teacher() {
   const navigate = useNavigate();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
